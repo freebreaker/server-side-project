@@ -1,0 +1,69 @@
+.CarInfo{
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+    padding: 15px;
+    .CarInfoTitle{
+        display: flex;
+        justify-content: space-between;
+    }
+    .CarInfoItem{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 15px;
+        margin-bottom: 10px;
+
+        .ExpectedAnnual{
+            span{
+                color:orange;
+                font-size: 30px;
+            }
+            p{
+                color: #888;
+            }
+        }
+
+        .LoanLimit{
+            padding-top: 10px;
+            span{
+                color:black;
+                font-size: 20px;  
+            }
+            p{
+                color: #888;
+            }
+        }
+
+        .LoanBtn{
+            display: inline-block;
+            width: 70px;
+            height: 30px;
+            border-radius: 5px;
+            background: orange;
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            a{
+                color: white;
+            }
+        }
+
+        .LoanFullBtn{
+            display: inline-block;
+            width: 70px;
+            height: 30px;
+            border-radius: 5px;
+            background: #0058a5;
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            a{
+                color: white;
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+.RechargeForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15%;
+    .RechargeFormItem{
+        margin-bottom: 5%;
+        label{
+            font-weight: bold;
+        }
+        input{
+            padding: 6px;
+            border-radius: 7px;
+            border: 1px solid #ccc;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+#tab-bar.demo {
+    display: flex;
+    flex-direction: column;
+  }
+  #tab-bar .demoName {
+    height: 40px;
+  }
+  #tab-bar .demo-preview-item .am-tab-bar {
+    background-color: white;
+  }
+
+  @font-face {
+    font-family: 'iconfont';  /* project id 681192 */
+    src: url('//at.alicdn.com/t/font_681192_xllie1n3t72xzuxr.eot');
+    src: url('//at.alicdn.com/t/font_681192_xllie1n3t72xzuxr.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_681192_xllie1n3t72xzuxr.woff') format('woff'),
+    url('//at.alicdn.com/t/font_681192_xllie1n3t72xzuxr.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_681192_xllie1n3t72xzuxr.svg#iconfont') format('svg');
+  }

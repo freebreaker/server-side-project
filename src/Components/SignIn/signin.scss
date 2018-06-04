@@ -1,0 +1,74 @@
+main{
+    padding-top: 30%;
+    .SignInTitle{
+        text-align: center;
+        margin-bottom: 45px;
+    }
+
+    .login-form{
+        text-align: center;
+    }
+
+    .ant-form-item-control {
+        input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {   
+            /* WebKit browsers */   
+           color:#9b9b9b;
+           }   
+           input:-moz-placeholder, textarea:-moz-placeholder {   
+           /* Mozilla Firefox 4 to 18 */   
+           color:#9b9b9b;    
+           }   
+           input::-moz-placeholder, textarea::-moz-placeholder {   
+            /* Mozilla Firefox 19+ */   
+            color:#9b9b9b;    
+           }   
+           input:-ms-input-placeholder, textarea:-ms-input-placeholder {   
+            /* Internet Explorer 10+ */   
+            color:#9b9b9b;     
+           }
+        input{
+            width: 75%;
+            height: 30px;
+            padding: 3px;
+            background: #eee;
+            border: none;
+            border-bottom: 1px solid #888;
+        }
+
+        .fa{
+            width: 5%;
+            height: 20px;
+            color: #888;
+        }
+        p{
+            color: #ffbd18;
+        }
+    }
+
+    .form-button{
+        display: inline-block;
+        margin: 0 auto;
+        width: 80%;
+        font-size: 16px;
+        height: 35px;
+        line-height: 35px;
+        background: #ffbd18;
+        color: #ffffff;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+    }
+
+    .form-register{
+        width: 80%;
+        margin:0 auto;
+        margin-top: 20px;
+        display:flex;
+        justify-content: space-between;
+        a{
+            color:#3fa7ff;
+        }
+    }
+
+}
+

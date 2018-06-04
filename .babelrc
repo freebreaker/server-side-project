@@ -1,0 +1,13 @@
+{
+    "presets": [
+      "node6",
+      "react",
+      "es2015",
+      "stage-0"
+    ],
+    "plugins": [
+      ["import", { "libraryName": "antd-mobile", "style": "css" }],
+      "transform-es2015-modules-commonjs",
+      "transform-decorators-legacy"
+    ]
+  }

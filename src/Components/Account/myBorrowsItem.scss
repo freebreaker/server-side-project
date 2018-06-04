@@ -1,0 +1,61 @@
+.MyBorrowsItem{
+    background: #fff;
+    margin-bottom: 5px;
+    padding: 15px;
+    .MyBorrowsItemTitle{
+        display: flex;
+        justify-content: space-between;
+        .MyDetail{
+            font-size: 16px;
+            color: #888;
+        }
+    }
+    .BorrowInfoItem{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 15px;
+        margin-bottom: 10px;
+        .ExpectedAnnual{
+            padding-top: 10px;
+            text-align: center;
+            span{
+                color:black;
+                font-size: 20px;  
+            }
+            p{
+                color: #888;
+                text-align: center;
+                background: white;
+                margin: 0;
+                padding: 0.3rem;
+            }
+        }
+
+        .BorrowTime{
+            padding-top: 10px;
+            text-align: center;
+            span{
+                color:black;
+                font-size: 20px;  
+            }
+            p{
+                color: #888;
+                text-align: center;
+                background: white;
+                margin: 0;
+                padding: 0.3rem;
+            }
+        }
+    }
+
+    .SpeadInfo{
+        p{
+            margin: 0.5rem;
+            padding: 0.2rem;
+            text-align: left;
+            background: #fff;
+            color: #888;
+        }
+    }
+}
