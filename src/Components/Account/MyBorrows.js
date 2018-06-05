@@ -51,7 +51,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {getBorrowList:bindActionCreators(getBorrowList,dispatch)}
-  }
+}
 
 const MyBorrows = connect(mapStateToProps,mapDispatchToProps)(MyBorrowsWrap)
 

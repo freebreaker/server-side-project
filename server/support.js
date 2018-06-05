@@ -32,7 +32,7 @@ const renderFullPage = (html, preloadState) => {
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>润阳贷</title>
-      <link rel="stylesheet" type="text/css" href="/build/${buildPath['main.css']}">
+      <link rel="stylesheet" type="text/css" href="/${buildPath['main.css']}">
       <link rel="stylesheet" href="//at.alicdn.com/t/font_681192_5oqpxwtumcej0pb9.css">
     </head>
     <body>
@@ -114,9 +114,9 @@ const handleRender = (req,res)=>{
 
 }
 
+app.use("/static",express.static("build/static"))
 
-
-app.use(handleRender)
+app.get('*',handleRender)
 
 app.listen(3011, (error) => {
     if (error) {

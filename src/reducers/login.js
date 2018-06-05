@@ -7,8 +7,8 @@ export default function loginReducer(state={}, action) {
         return Object.assign({},state,{FetchSuccess:true,Data:action.result.Data})
       case 'LOG_OUT':
         return Object.assign({},state,{isFetching:false,FetchSuccess:false})
-      case 'SIGN_IN':
-        return Object.assign({},state,{ifSigned:true})
+      case 'FETCH_LOGIN':
+        return Object.assign({},state,{ifSigned:action.payload})
     default: return state;
     }
   } 

@@ -18,27 +18,12 @@ class AccountWrap extends React.Component {
 
     componentWillMount(){
         console.log('willmount')
-        console.log(this.props)
     }
-
-    componentWillReceiveProps(){
-        console.log("props changed")
-        console.log(this.props)
-    }
-    componentWillUpdata(nextProps, nextState){
-        console.log('update')
-    }
-
     render() {
         const ifShow = this.props.data.IfLogIn.FetchSuccess
         const data = this.props.data.IfLogIn.Data
         return (
-            ifShow?<AccountMsgs onSigned={this.props.Actions.signIn.bind(this)}
-            onLogOut={this.props.Actions.logOut.bind(this)}
-            ifSigned={this.props.data.IfLogIn.ifSigned}
-            totalSalary={data.总资产}
-            restMoney={data.可用余额}
-            accumulatedIncome={data.累计收益}
+            ifShow?<AccountMsgs
             />:
             <SignIn onLogIn={(msgs,e) => {this.props.Actions.loginTest(msgs,e)}}
             isFetching={this.props.data.IfLogIn.isFetching}
@@ -58,7 +43,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     let actions = {
         loginTest,
         signIn,
-        logOut
+        logOut,
+        loginTest
     }
     return {
         Actions:bindActionCreators(actions,dispatch)
