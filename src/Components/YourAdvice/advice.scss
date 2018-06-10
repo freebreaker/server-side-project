@@ -1,0 +1,45 @@
+.Advice{
+    padding-top: 50px;
+    .AdviceStar{
+        padding: 16px;
+        background: white;
+    }
+    .Judge{
+        text-align: center;
+    }
+    .StarFive{
+        display: flex;
+        margin:0 20%;
+        justify-content: space-around;
+    }
+    .Comment{
+        text-align: center;
+        margin: 15px 0 0px 0;
+        color: #f39700;
+    }
+
+
+    .AdviceMsgs{
+        background: white;
+        padding: 16px;
+        margin-top: 5px;
+        margin-bottom: 60px;
+        p{
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+            text-align: left;
+        }
+
+        .AdviceText{
+            display: block;
+            width: 90%;
+            height: 250px;
+            margin: 0 auto;
+            margin-bottom: 10px;
+            border: 1px solid #888;
+            border-radius: 4px;
+            padding: 14px;
+        }
+    }
+}

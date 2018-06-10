@@ -12,21 +12,24 @@
             .Telephone{
                 width: 25%;
                 height: 4.2rem;
+                padding-top: 5px;
                 p{
                     margin: 0;
                 }
             }
             .Identify{
                 width: 30%;
+                padding-top: 14px;
             }
             .SignIn{
                 width: 18%;
+                div{
+                    padding-top: 14px;
+                }
             }
             .HeadPhoto{
                 width: 2.5rem;
                 height: 2.5rem;
-                border-radius: 50%;
-                border: 1px solid orange;
             }
         }
     }
@@ -64,11 +67,17 @@
         padding-left: 15px;
     }
     span{
+        vertical-align: middle;
+    }
+    .RightSpan{
         display: block;
         float: right;
         margin-right: 15px;
         color: #9b9b9b;
-
+    }
+    .icon{
+        margin-right: 10px;
+        vertical-align: middle;
     }
 }
 

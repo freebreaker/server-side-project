@@ -17,7 +17,7 @@ import configureStore from '../src/store'
 
 import routes from '../src/routes'
 
-import {fetchList} from '../src/actions'
+import {fetchList, fetchBefore} from '../src/actions'
 
 import buildPath from '../build/asset-manifest.json';
 
@@ -38,6 +38,7 @@ const renderFullPage = (html, preloadState) => {
     <body>
       <div id="root"><div>${html}</div></div>
       <script>window.__INITIAL_STATE__ =${JSON.stringify(preloadState)}</script>
+      <script src="/static/js/iconfont.js"></script>
       <script src="//at.alicdn.com/t/font_681192_5oqpxwtumcej0pb9.js"></script>
       <script src="/${buildPath['main.js']}"></script>
     </body>
@@ -76,7 +77,8 @@ const handleRender = (req,res)=>{
           // console.log(tasks)
           
           Promise.all([
-            store.dispatch(fetchList())
+            store.dispatch(fetchList()),
+            store.dispatch(fetchBefore())
           ])
           .then(() => {
 

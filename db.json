@@ -1107,7 +1107,11 @@
       "IfLogIn":{
         "isFetching":false, 
         "FetchSuccess":false,
-        "ifSigned":false,  
+        "ifSigned":{
+          "Data":null,
+          "Msgs":"未签到",
+          "Success":true
+        },  
         "Data":{
           "总资产":0,
           "isFirst":1,

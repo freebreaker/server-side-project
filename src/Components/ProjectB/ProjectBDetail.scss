@@ -62,7 +62,7 @@
 
 .InvestButton{
     position: fixed;
-    bottom: 15px;
+    bottom: 60px;
     width: 60%;
     height: 40px;
     line-height: 40px;
@@ -76,8 +76,9 @@
 
 
 .AccordionPanel{
-    p{
-        padding-left: 16px;
+    padding: 16px;
+    div{
+        padding: 15px 0;
     }
 }
 
@@ -100,7 +101,7 @@
 .Profit{
     width: 35%;
     margin: 0 auto;
-    margin-top: 15px;
+    margin-top: 10px;
     text-align: center;
     p{
         margin: 10px 0;

@@ -1,0 +1,89 @@
+.Order{
+    padding-top: 55px;
+    .OrderTitle{
+        background: white;
+        margin: 0;
+        padding: 15px 0 0 10px;
+    }
+    .OrderTime{
+        display: flex;
+        justify-content: space-around;
+        padding: 10px 0;
+        background: white;
+        .Selected{
+            color: #14a4e6;
+            padding: 4px 0;
+            text-align: center;
+            width: 13%;
+            border:1px solid #14a4e6;
+            border-radius: 15px;
+        }
+        .NotSelected{
+            color: #888;
+            padding: 4px 0;
+            text-align: center;
+            width: 13%;
+            border:1px solid #888;
+            border-radius: 15px;  
+        }
+        .NotSupported{
+            color: #ddd;
+            padding: 4px 0;
+            text-align: center;
+            width: 13%;
+            border:1px solid #ddd;
+            border-radius: 15px;
+        }
+    }
+    .OrderMsgs{
+        padding: 16px;
+        background: white;
+        .OrderMsgsDetail{
+            padding: 4px 0;
+            font-size: 10px;
+            color: #888;
+        }
+        .OrderMoney{
+            display: flex;
+            margin-top: 20px;
+            margin-bottom: 50px;
+            justify-content: space-around;
+            align-items: center;
+            span{
+                display: inline-block;
+                width: 32px;
+                height: 30px;
+                text-align: center;
+                vertical-align: middle;
+                background: #eee;
+                font-size: 26px;
+                vertical-align: middle;
+                border: 1px solid #ddd;
+                border-radius: 2px;
+                color: #888;
+                padding-bottom: 4px;
+            }
+            input{
+                box-sizing: border-box;
+                width: 60%;
+                font-size: 2.5rem;
+                color: orangered;
+                border: none;
+                border-bottom: 1px solid #ddd;
+                text-align: center;
+            }
+        }
+    }
+    .OrderCheck{
+        display: flex;
+        align-items: baseline;
+    }
+    .OrderFile{
+        margin-left: -15px;
+        margin-bottom: 10px;
+        .CheckedInput{
+            background: #1890ff;
+            color: #fff;
+        }
+    }
+}

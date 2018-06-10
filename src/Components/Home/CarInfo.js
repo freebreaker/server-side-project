@@ -19,10 +19,8 @@ class CarInfo extends React.Component {
   render(){
 
       let Msgs = this.props.totalMsgs
-    //   console.log(Msgs)
-
-      // let {name,ExpectedAnnual,LoanLimit,ProjectId,InvestMoney,InvestNumber,User} = Msgs
-
+      
+      let InvestPermisson = this.props.InvestPermisson
 
       let {Title,N_年化利率,B_保障方式,Id,S_剩余投资额_XT,S_剩余投资额} = Msgs
 
@@ -42,6 +40,7 @@ class CarInfo extends React.Component {
           S_剩余投资额:S_剩余投资额,
           PayTypeText:Msgs.PayTypeText,
           Condition:Msgs.H_还款状态,
+          InvestPermisson:InvestPermisson
       }
 
       const LoanClass = BtnValue =="抢购"?"LoanBtn":"LoanFullBtn"

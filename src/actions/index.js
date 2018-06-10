@@ -19,9 +19,14 @@ export function fetchList() {        //进入首页后服务端渲染接口
     console.log('dispatch')
     return fetch('http://localhost:3002/GetProjectBListThree')
         .then(res => res.json())
-        .then(json => dispatch({ type: 'FETCH_LIST_SUCCESS', payload: json.Data }));
+        .then(json => dispatch({ type: 'FETCH_LIST_SUCCESS', payload: json.Data}));
   }
 }
+
+export const fetchBefore = () =>({   //登录之前将iflogin 消息录入
+  type:'FETCH_BEFORE'
+})
+
 
 export const fetchStart = () => ({     //登陆开始显示登陆中
   type: 'FETCH_START'
@@ -59,7 +64,8 @@ export const fetchLogIn = (result) =>({  //签到
   payload:result
 })
 
-export function signIn(){  // 发送签到请求
+export function signIn(){ 
+  // 发送签到请求
   return (dispatch)=>{
     return axios({
       method:"POST",

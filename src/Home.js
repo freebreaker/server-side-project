@@ -31,22 +31,17 @@ class HomePage extends React.Component {
     
     const CarInfoArray = this.props.data.Data
 
+    const InvestPermisson = this.props.data.IfLogIn.FetchSuccess
+
     const listArray = CarInfoArray.length>0?CarInfoArray:[]
 
     let CarInfos = listArray.map((item,index)=>{
-
-        // console.log(item)
 
         return (
           <li key={index}> 
               <CarInfo
               totalMsgs = {item} 
-              // name={item.Pledge}  
-              // ExpectedAnnual={item.N_年化利率} 
-              // LoanLimit={item.B_保障方式}
-              // ProjectId = {item.Id}
-              // InvestMoney ={item.S_剩余投资额_XT}
-              // InvestNumber ={item.S_剩余投资额}
+              InvestPermisson = {InvestPermisson}
           />
           </li>
         )

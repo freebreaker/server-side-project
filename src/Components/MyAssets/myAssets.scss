@@ -1,0 +1,58 @@
+.MyAssets{
+        .BGray{
+        font-size: 14px;
+        color: #888;
+        margin-bottom: 8px;
+    }
+
+    .BGBig{
+        font-size: 1.5rem;
+    }
+
+    .BGOrange{
+        color: orangered;
+    }
+    .MyAssetsMsgs{
+        margin-top: 48px;
+        background: white;
+        padding: 16px;
+        .MyAssetsName{
+            padding: 5px 0; 
+        }
+    }
+
+    .MyAssetsRiskType{
+        display: flex;
+        margin-top: 1px;
+        background: white;
+        padding: 10px 16px;
+        justify-content: space-between;
+    }
+    .MyAssetsAccount{
+        display: flex;
+        margin-top: 5px;
+        background: white;
+        padding: 10px 16px;   
+        justify-content: space-between;
+    }
+
+
+    .MyAssetsOthers{
+        display: flex;
+        margin-top: 1px;
+        background: white;
+        flex-wrap: wrap;
+        .MyAssetsOptions{
+            box-sizing: border-box;
+            width: 50%;
+            padding: 10px 16px;   
+            border-right: 1px solid #f0f4f7;
+            .MyAssetsOption{
+                margin-bottom: 5px;
+            }
+            .BGray{
+                margin-bottom: 0;
+            }
+        }
+    }
+}

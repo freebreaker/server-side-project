@@ -9,10 +9,10 @@ import About from '../src/Components/About'
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 import createHistory  from 'history/lib/createHashHistory';
 import createMemoryHistory from 'history/lib/createMemoryHistory';
+import { LOGIN_SUCCESS } from './actions';
 
 
 // const initialState = window.__INITIAL_STATE__;
-
 const initialState =  {
     "Data": [
       {
@@ -1122,7 +1122,11 @@ const initialState =  {
     "IfLogIn":{
       isFetching:false,   //正在登陆
       FetchSuccess:false,
-      ifSigned:false,  //是否签到
+      ifSigned:{
+        Data:null,
+        Msgs:"未签到",
+        Success:true
+      },  //是否签到
       Data:{
         总资产:0,
         isFirst:1,

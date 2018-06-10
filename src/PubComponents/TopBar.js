@@ -11,8 +11,13 @@ class TopBar extends Component {
     }
 
     render() {
+
+        const BgColor = this.props.BgColor
+
         return (
-            <div className="TopBar">
+            <div className="TopBar" style={{
+                background:BgColor
+            }}>
                 <p>
                     <i className="iconfont PushBack" onClick={()=>history.goBack()}>&#xe645;</i>
                     <span>{this.props.title}</span>

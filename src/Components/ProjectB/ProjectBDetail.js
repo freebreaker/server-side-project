@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import {Link} from "react-router";
 import "./ProjectBDetail.scss";
-import createBrowserHistory from 'history/lib/createBrowserHistory';
-import { Progress,Accordion, List } from 'antd-mobile';
+import { Progress,Accordion } from 'antd-mobile';
 import Scaleplate from "../../utils/Scale";
-import createMemoryHistory from 'history/lib/createMemoryHistory';
-const history = createMemoryHistory();
+import { connect } from 'react-redux';
+import {changeSelectedValue} from "../../actions/index"
+import {bindActionCreators} from 'redux'
+import PanelHeader from '../../PubComponents/PanelHeader.js'
+import "../../PubComponents/iconfont.js"
+import BottomTab from "../../PubComponents/BottomTab.js"
 
-class ProjectBDetail extends React.Component {
+class ProjectBDetailWrap extends React.Component {
 
   constructor(props) {
     super(props);
@@ -18,6 +21,10 @@ class ProjectBDetail extends React.Component {
   over(now,percent){
     document.querySelector('.ProfitNumber').innerText = now;
     document.querySelector('.ProfitMoney').innerText = now*percent/100;
+  }
+
+  pushLogIn(value){
+      this.props.changeSelectedValue(value)
   }
 
   componentDidMount(){
@@ -39,12 +46,6 @@ class ProjectBDetail extends React.Component {
       },this.over)
   }
 
-//   componentDidMount(){
-//     //   const {store} = this.context
-//     //   console.log(store.getState())
-//     console.log(this.context)
-//   }
-
   render(){
 
     var data = this.props.location.state;
@@ -53,7 +54,7 @@ class ProjectBDetail extends React.Component {
             Percent,Condition,
             PaymentWay,MonthPay,
             S_剩余投资额,Id,
-            PaymentChannels,Sfz,
+            PaymentChannels,Sfz,InvestPermisson
         } = data
     const ProjectBOrderMsgs = {
         S_剩余投资额:S_剩余投资额
@@ -64,7 +65,11 @@ class ProjectBDetail extends React.Component {
             <div className="ProjectBanner">
                 <p>项目详情</p>
                 <p>{Title}</p>
-                <span className="PushBack" onClick={()=>history.goBack()}>back</span>
+                <Link className="PushBack" 
+                to={{
+                    pathname:"/"
+                }}
+                onClick={this.pushLogIn.bind(this,1)}>back</Link>
                 <div className="TotalMsgs">
                     <div className="YearPercent">
                         <p>预期年化收益率</p>
@@ -102,17 +107,17 @@ class ProjectBDetail extends React.Component {
                 <p className="ProfitP">预计一年收益(元)</p>
                 <p className="ProfitMoney"></p>
             </div>
-            <div style={{ marginTop: 10, marginBottom: 10 }}>
-                <Accordion defaultActiveKey="0" className="my-accordion" onChange={this.onChange}>
-                <Accordion.Panel header="项目详情">
+            <div style={{marginBottom: 110 }}>
+                <Accordion className="my-accordion" onChange={this.onChange}>
+                <Accordion.Panel header={<PanelHeader text="项目详情" source="#icon--1"/>}>
                     <div className="AccordionPanel">
-                        <p>计息日期：</p>
-                        <p>还款方式：</p>
-                        <p>月还本息：</p>
-                        <p>状态：</p>
+                        <div>计息日期：</div>
+                        <div>还款方式：</div>
+                        <div>月还本息：</div>
+                        <div>状态：</div>
                     </div>
                 </Accordion.Panel>
-                <Accordion.Panel header="借款人信息" className="pad">
+                <Accordion.Panel header={<PanelHeader text="借款人信息" source="#icon-jiekuanshenqing"/>} className="pad">
                     <div className="AccordionPanel2">
                         <span>姓名：{User.FullName}</span>
                         <span>年龄：</span>
@@ -128,34 +133,54 @@ class ProjectBDetail extends React.Component {
                         <span>严重逾期：</span>
                     </div>
                 </Accordion.Panel>
-                <Accordion.Panel header="相关证明" className="pad">
+                <Accordion.Panel header={<PanelHeader text="相关证明" source="#icon-gongchengjungongyanshouzhengming"/>} className="pad">
                     <div className="AccordionPanel3">
                         text
                     </div>
                 </Accordion.Panel>
-                <Accordion.Panel header="借款描述" className="pad">
+                <Accordion.Panel header={<PanelHeader text="借款描述" source="#icon-jinrongxianxingge-"/>} className="pad">
                     <div className="AccordionPanel3">
                         text
                     </div>
                 </Accordion.Panel>
-                <Accordion.Panel header="投资记录" className="pad">
+                <Accordion.Panel header={<PanelHeader text="投资记录" source="#icon-jilu2"/>} className="pad">
                     <div className="AccordionPanel3">
                         text
                     </div>
                 </Accordion.Panel>
                 </Accordion>
             </div>
+            {InvestPermisson?
             <Link className="InvestButton" to={{
                 pathname: `ProjectBOrder/${Id}`,
                 state:""
             }}>
                 我要投资
+            </Link>:
+            <Link className="InvestButton" to={{
+                pathname: `/`,
+            }} onClick={this.pushLogIn.bind(this,2)}>
+                先登录 再投资
             </Link>
+        }
+        <BottomTab/>
         </div>
     )
   }
 }
 
+const mapStateToProps = (state) => {
+    return {
+      selectedTab:state.selectedValue
+    }
+  }
 
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        changeSelectedValue:bindActionCreators(changeSelectedValue,dispatch)
+    }
+}
+
+const ProjectBDetail = connect(mapStateToProps,mapDispatchToProps)(ProjectBDetailWrap)
 
 export default ProjectBDetail

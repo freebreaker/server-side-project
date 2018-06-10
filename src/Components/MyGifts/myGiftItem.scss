@@ -1,0 +1,53 @@
+.MyGiftItem{
+    .orange{
+        color:orange;
+    }
+    .oranged{
+        color:orangered;
+    }
+    .blue{
+        color:#14a4e6;
+    }
+    width: 94%;
+    background:white;
+    border-radius:10px;
+    margin: 0 auto;
+    margin-bottom: 8px;
+    .MyGiftItemTitle{
+        padding: 8px;
+        text-align: center;
+        font-size: 16px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .MyGiftItemMsgs{
+        display:flex;
+        justify-content: space-between;
+        padding: 46px;
+        text-align: center;
+        align-items: baseline;
+        p{
+            .RMoney{
+                color: #14a4e6;
+                font-size: 2rem;
+            }
+            margin:0;
+            margin-bottom: 10px;
+        }
+        span{
+            color:#888;
+        }
+    }
+
+    .RCoin{
+        text-align: center;
+        padding-bottom: 20px;
+        margin-bottom: 10px;
+        .RCoinMsgs{
+            padding: 5px 10px;
+            border: 1px solid #14a4e6;
+            border-radius: 25px;
+            color: #14a4e6;
+        }
+    }
+}

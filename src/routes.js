@@ -11,6 +11,11 @@ import ProjectBDetail from './Components/ProjectB/ProjectBDetail';
 import SignUp  from './Components/SignIn/SignUp';
 import Recharge from './Components/Account/Recharge'
 import MyBorrows from './Components/Account/MyBorrows'
+import MyAssets from './Components/MyAssets/MyAssets.js'
+import MyGifts from "./Components/MyGifts/MyGifts.js"
+import Security from "./Components/MySecurity/Security.js"
+import Order from "./Components/MyOrder/Order"
+import Advice from "./Components/YourAdvice/Advice"
 import Home from './Home';
 import translateStyle from './translate.scss';
 
@@ -66,6 +71,11 @@ const routes = (
         <Route path="Register" component = {SignUp}/>
         <Route path="Recharge" component = {Recharge}/>
         <Route path="MyBorrows" component = {MyBorrows}/>
+        <Route path="MyAssets" component = {MyAssets}/>
+        <Route path="MyGifts" component = {MyGifts}/>
+        <Route path="Security" component = {Security}/>
+        <Route path="MyOrder" component = {Order}/>
+        <Route path="YourAdvice" component = {Advice}/>
     </Route>
 );
 
