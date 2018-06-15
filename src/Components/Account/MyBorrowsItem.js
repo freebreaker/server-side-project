@@ -19,11 +19,15 @@ class MyBorrowsItem extends React.Component {
     }
 
     render() {
-        const {Pledge,D_待还本金,N_年化利率,Money,Y_已还期数,Q_期限_Text,PayTypeText,X_下一还款日,H_还款状态,M_每月还钱数,Detail} = this.props.infos
+        const {Pledge,D_待还本金,Title,N_年化利率,Money,Y_已还期数,Q_期限_Text,
+            PayTypeText,X_下一还款日,H_还款状态,M_每月还钱数,Detail,Z_总金额,Borrow} = this.props.infos
+
+        const UrlProjectBId = "ProjectBDetail/"+ Borrow.ProjectBId 
+        
         return (
             <div className='MyBorrowsItem'>
                 <div className="MyBorrowsItemTitle">
-                    <Link to={{
+                    {/* <Link to={{
                             pathname:`ProjectBList`
                             }}>{Pledge}
                     </Link>
@@ -35,11 +39,19 @@ class MyBorrowsItem extends React.Component {
                         to={{
                         pathname:`ProjectBList`
                         }}>详情 >
+                    </Link> */}
+                    <Link className="MyDetail"
+                        to={{
+                        pathname:UrlProjectBId,
+                        state:{
+                            Id:Borrow.ProjectBId 
+                        }
+                        }}>{Title}>>
                     </Link>
                 </div>
                 <div className="BorrowInfoItem">
                     <div className="ExpectedAnnual">
-                      <span>{D_待还本金}</span><span>元</span>
+                      <span>{Z_总金额}</span><span>元</span>
                       <p>借款金额</p>
                     </div>
 

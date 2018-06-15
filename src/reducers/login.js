@@ -19,6 +19,12 @@ export default function loginReducer(state={}, action) {
         return Object.assign({},state,{isFetching:false,FetchSuccess:false})
       case 'FETCH_LOGIN':
         return Object.assign({},state,{ifSigned:action.payload})
+      case 'GET_MYASSETLIST':
+        return Object.assign({},state,{AssestList:action.payload})
+      case 'Can_Use_Money':
+        return Object.assign({},state,{CanUseMoney:action.payload})
+      case 'PROJECTBDT':
+        return Object.assign({},state,{ProjectBDt:action.payload})
     default: return state;
     }
   } 

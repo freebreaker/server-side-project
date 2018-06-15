@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 import './advice.scss'
 import TopBar from '../../PubComponents/TopBar';
 import {Button} from 'antd-mobile';
+import axios from 'axios'
 import BottomTab from '../../PubComponents/BottomTab';
 class Advice extends Component {
     constructor(props){
         super(props)
         this.state={
             StarArr:[1,1,1,1,0],
-            numbers:5,
-            Comments:['不予置评','不满意','一般','满意','非常满意']
+            numbers:4,
+            Comments:['不满意','一般','满意','非常满意'],
+            Suggestion:""
         }
     }
 
@@ -31,6 +33,26 @@ class Advice extends Component {
         this.renderArr(number)
     }
 
+    SendFeedBack(){
+        const _this = this
+        axios({
+            method:"POST",
+            url:"Api/SaveFeedback",
+            data:{
+                type:_this.state.numbers,
+                content:_this.state.Suggestion
+            },
+            withCredentials:true      
+        }).then(function (response) {
+            alert(response.data)
+          })
+    }
+    handleChange(e){
+        this.setState({
+            Suggestion:e.target.value
+        })
+    }
+
     componentWillMount(){
         const x = this.state.numbers
         this.renderArr(x)
@@ -40,7 +62,7 @@ class Advice extends Component {
 
         return (
             <div className='Advice'>
-                <TopBar title="意见反馈"/>
+                <TopBar title="意见反馈" BackTo='/'/>
                 <BottomTab/>
                 <div className='AdviceStar'>
                     <p className="Judge">您的评价让我们做的更好！</p>
@@ -69,12 +91,6 @@ class Advice extends Component {
                         }}
                         onClick={this.changeNumber.bind(this,4)}
                         >&#xe62f;</i>
-                        <i className="iconfont" style={{
-                            fontSize:30,
-                            color:this.state.StarArr[4]
-                        }}
-                        onClick={this.changeNumber.bind(this,5)}
-                        >&#xe62f;</i>
                     </div>
                     <p className="Comment">{this.state.Comments[this.state.numbers-1]}</p>
                 </div>
@@ -89,9 +105,9 @@ class Advice extends Component {
                         <span>留下您的宝贵意见！</span>
                     </p>
                     <textarea className='AdviceText'
-                    placeholder="最多输入120字">
+                    placeholder="最多输入120字" onChange={(e)=>this.handleChange(e)}>
                     </textarea>
-                    <Button className="SubmitBtn" type='primary'>提交</Button>
+                    <Button className="SubmitBtn" type='primary' onClick={this.SendFeedBack.bind(this)}>提交</Button>
                 </div>
             </div>
         );

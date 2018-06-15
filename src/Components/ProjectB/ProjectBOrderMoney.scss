@@ -1,3 +1,67 @@
+// .ProjectBOrderMoney{
+//     form{
+//         background: #eee;
+//     }
+//     .ProjectBOrderTitle{
+//         p{
+//             padding: 10px 0 0 15px;
+//         }
+//     }
+//     .MoneyMark{
+//         font-size: 2rem;
+//     }
+//     .investInput{
+//         height: 30px;
+//         width: 80%;
+//         border: 0; 
+//         font-size: 2rem;
+//     }
+//     p{
+//         font-size: 14px;
+//         color: #666666;
+//     }
+//     .Tips{
+//         color: orangered;
+//     }
+//     input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {   
+//         /* WebKit browsers */   
+//         color: #999999;
+//        font-size: 14px;
+//        }   
+//        input:-moz-placeholder, textarea:-moz-placeholder {   
+//        /* Mozilla Firefox 4 to 18 */   
+//        color: #999999; 
+//        font-size: 14px;
+//        }   
+//        input::-moz-placeholder, textarea::-moz-placeholder {   
+//         /* Mozilla Firefox 19+ */   
+//         color: #999999;
+//        font-size: 14px;
+//        }   
+//        input:-ms-input-placeholder, textarea:-ms-input-placeholder {   
+//         /* Internet Explorer 10+ */   
+//         color: #999999;  
+//        font-size: 14px; 
+//        }
+// }
+
+
+// #navgationBarO{
+//     display: none;
+// }
+
+// #tabBarDiv{
+//     display: none;
+// }
+
+// .coupon-btn{
+//     display: none!important;
+// }
+
+.ProjectBOrder{
+    padding-bottom: 90px;
+}
+
 .ProjectBOrderMoney{
     margin-top: 42px;
     background: white;
@@ -38,4 +102,21 @@
         color: #999999;  
        font-size: 14px; 
        }
+}
+
+.Coupons{
+    li{
+        width:94%;
+        margin:0 auto;
+    }
+}
+
+.CouponReduce{
+    padding: 5px 4%;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    .orangedMoney{
+        color: orangered;
+    }
 }

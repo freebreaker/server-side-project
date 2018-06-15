@@ -98,8 +98,8 @@ const SignIn=formProvider({
                 error:"请输入用户名"
             },
             {
-                pattern: /^.{1,4}$/,
-                error:"用户名最多四个字符"
+                pattern: /^.{1,11}$/,
+                error:"用户名最多11个字符"
             }
         ]
     },

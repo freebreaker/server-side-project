@@ -10,6 +10,10 @@ class MyGiftItem extends Component {
     render() {
         const LeftColor = this.props.LeftFontColor
         const RightColor = this.props.RightFontColor
+        const LeftLink = this.props.LeftLink
+        const RLink = this.props.RLink
+        const BLink = this.props.BLink
+        const Id = this.props.RId
         return (
             <div className="MyGiftItem">
                 <div className="MyGiftItemTitle">{this.props.title}</div>
@@ -29,8 +33,11 @@ class MyGiftItem extends Component {
                             </svg>
                         </p>}
                         <Link to={{
-                            pathname:'Recharge',
-                            state:''
+                            pathname:LeftLink,
+                            state:{
+                                Id:Id,
+                                RMoney:this.props.RMoney
+                            }
                         }}>
                         <span>{this.props.LeftMsgs}</span>
                         <p style={{marginTop:10,color:"#888"}}>{this.props.LeftMsgs2}</p>
@@ -47,15 +54,24 @@ class MyGiftItem extends Component {
                     </p>
 
                         <Link to={{
-                            pathname:'Recharge',
-                            state:''
+                            pathname:RLink,
+                            state:{
+                                Id:Id,
+                                RMoney:this.props.RMoney
+                            }
                         }}>
                         <span>{this.props.RightMsgs}</span>
                         </Link>
                     </div>
                 </div>
                 <div className="RCoin">
-                    <Link className="RCoinMsgs">
+                    <Link className="RCoinMsgs" to={{
+                        pathname:BLink,
+                        state:{
+                            Id:Id,
+                            RMoney:this.props.RMoney
+                        }
+                    }}>
                         {this.props.intruduction}
                     </Link>
                 </div>

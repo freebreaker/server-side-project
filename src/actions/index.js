@@ -17,7 +17,14 @@ export const loginStore =() =>({          //登陆账号密码的缓存
 export function fetchList() {        //进入首页后服务端渲染接口
   return (dispatch) => {
     console.log('dispatch')
-    return fetch('http://localhost:3002/GetProjectBListThree')
+    return axios({
+            method:"POST",
+            url:"/Api/GetProjectBList",
+            data:{
+              "pn":0
+            },
+            withCredentials:true
+          })
         .then(res => res.json())
         .then(json => dispatch({ type: 'FETCH_LIST_SUCCESS', payload: json.Data}));
   }
@@ -43,7 +50,12 @@ export function loginTest(loginMsgs,e){
     e.preventDefault(); 
     return (dispatch) =>{
       dispatch(fetchStart())
-      return axios.post('http://localhost:13244/DoLogin',loginMsgs)
+      return axios({
+        method:"POST",
+        url:"/DoLogIn",
+        data:loginMsgs,
+        withCredentials:true
+      })
       .then(res => {
         if(res.data.Success){
           dispatch(fetchSuccess(res.data))
@@ -55,9 +67,13 @@ export function loginTest(loginMsgs,e){
     }
 }
 
-export const logOut =() => ({  //登出
-  type:LOG_OUT
-})
+export const logOut =() => {
+  axios.post('/LogOut')    //登出
+  return {
+    type:LOG_OUT
+  }
+}
+  
 
 export const fetchLogIn = (result) =>({  //签到
   type:FETCH_LOGIN,
@@ -81,12 +97,16 @@ export function signIn(){
   }
 }
 
-export function getBorrowList(){   //获取借款列表页
+export function getBorrowList(id){   //获取借款列表页
   return (dispatch)=>{
-    return axios.post("/Report/projectBLog")
+    return axios({
+      method:"POST",
+      url:"Api/GetMyProjectBDetail/"+id,
+      withCredentials:true      
+    })
     .then(function (response) {
         console.log(response);
-        dispatch(fetchBorrowList(response.data.Data))
+        dispatch(fetchBorrowList(response.data))
       })
       .catch(function (error) {
         console.log(error);
@@ -103,3 +123,74 @@ export const changeSelectedValue = (value)=> {   //改变tab-number
   type:"CHANGE_SELECTED_VALUE",
   payload:value
 }}
+
+
+export const MyAssetList = (value) =>{           
+  //投资总额 已收利息 待收利息 待收本金 充值金额 提现金额
+  return {
+    type:"GET_MYASSETLIST",
+    payload:value
+  }
+}
+
+export const getMyAssetList = () =>{
+  return (dispatch)=>{
+    return axios({
+      method:"POST",
+      url:"/GetMyAssetList",
+      withCredentials:true
+    })
+    .then(function (response) {
+        dispatch(MyAssetList(response.data))
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+}
+
+export const CanUseMoney = (value) =>{
+  return {
+    type:"Can_Use_Money",
+    payload:value
+  }
+}
+
+export const getCanUseMoney =()=>{
+  return (dispatch)=>{
+    return axios({
+      method:"POST",
+      url:"/RefreshUserModel",
+      withCredentials:true
+    })
+    .then(function (response) {
+        dispatch(CanUseMoney(response.data.Data.Money))
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+}
+
+export const ProjectBDt =(value) =>{
+  return {
+    type:"PROJECTBDT",
+    payload:value
+  }
+}
+
+export const getProjectBDt =(Id)=>{
+  return (dispatch)=>{
+    return axios({
+      method:"POST",
+      url:"/Api/GetProjectBDt/d9ed4a8c-56a1-4b85-98d3-0dd632befe72",
+      withCredentials:true
+    })
+    .then(function (response) {
+        dispatch(ProjectBDt(response.data))
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+}

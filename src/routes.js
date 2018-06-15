@@ -8,13 +8,22 @@ import Component1 from './Components/Component1';
 import ProjectBList from "./Components/ProjectB/ProjectBList";
 import ProjectBOrder from "./Components/ProjectB/ProjectBOrder";
 import ProjectBDetail from './Components/ProjectB/ProjectBDetail';
+import ProjectDetailList from './Components/ProjectB/ProjectDetailList';
 import SignUp  from './Components/SignIn/SignUp';
 import Recharge from './Components/Account/Recharge'
 import MyBorrows from './Components/Account/MyBorrows'
 import MyAssets from './Components/MyAssets/MyAssets.js'
 import MyGifts from "./Components/MyGifts/MyGifts.js"
+import RMoneyText from "./Components/MyGifts/RMoneyText.js"
+import RMoneyUse from "./Components/MyGifts/RMoneyUse.js"
+import MyFriends from "./Components/MyFriends/MyFriends.js"
+import Lucky from "./Components/MyGifts/Lucky"
+import LuckyNew from "./Components/MyGifts/LuckyNew"
+import Exchange from "./Components/MyGifts/Exchange"
+import MyCoupon from "./Components/MyGifts/MyCoupon"
 import Security from "./Components/MySecurity/Security.js"
 import Order from "./Components/MyOrder/Order"
+import OrderDetails from './Components/MyOrder/OrderDetails'
 import Advice from "./Components/YourAdvice/Advice"
 import Home from './Home';
 import translateStyle from './translate.scss';
@@ -43,19 +52,19 @@ class Container extends React.Component {
 
     render() {
         return (
-            <ReactCSSTransitionGroup
-            transitionName={this.state.transitionName}
-            className={translateStyle[this.state.transitionName]}
-            transitionEnterTimeout={300}
-            transitionLeaveTimeout={300}
-            component="div"
-            >
+            // <ReactCSSTransitionGroup
+            // transitionName={this.state.transitionName}
+            // className={translateStyle[this.state.transitionName]}
+            // transitionEnterTimeout={300}
+            // transitionLeaveTimeout={300}
+            // component="div"
+            // >
                 <div key={this.props.location.pathname} 
                     className={this.props.location.pathname}
                     style={{position:"absolute", width: "100%"}}>
                         {this.props.children}
                 </div>
-            </ReactCSSTransitionGroup>
+            /* </ReactCSSTransitionGroup> */
         );
     }
 }
@@ -68,13 +77,22 @@ const routes = (
         <Route path="ProjectBList" component = {ProjectBList} />
         <Route path="ProjectBDetail/:name" component = {ProjectBDetail}/>
         <Route path="ProjectBOrder/:name" component = {ProjectBOrder}/>
+        <Route path="ProjectDetailList/:name" component = {ProjectDetailList}/>
         <Route path="Register" component = {SignUp}/>
         <Route path="Recharge" component = {Recharge}/>
         <Route path="MyBorrows" component = {MyBorrows}/>
         <Route path="MyAssets" component = {MyAssets}/>
         <Route path="MyGifts" component = {MyGifts}/>
+        <Route path="MyGifts/RMoneyText" component = {RMoneyText}/>
+        <Route path="MyGifts/RMoneyUse" component = {RMoneyUse}/>
+        <Route path="MyGifts/Lucky" component = {Lucky}/>
+        <Route path="MyGifts/LuckyNew" component = {LuckyNew}/>
+        <Route path="MyGifts/Exchange" component = {Exchange}/>
+        <Route path="MyGifts/MyCoupon" component = {MyCoupon}/>
+        <Route path="MyFriends" component = {MyFriends}/>
         <Route path="Security" component = {Security}/>
         <Route path="MyOrder" component = {Order}/>
+        <Route path="MyOrder/Details" component = {OrderDetails}/>
         <Route path="YourAdvice" component = {Advice}/>
     </Route>
 );

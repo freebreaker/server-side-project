@@ -1,0 +1,24 @@
+.LuckyNew{
+    h2{
+        text-align: center;
+
+    }
+    .box1{
+        position: relative;
+        max-width: 750px;
+        margin: 0 auto;
+        .drawBg{
+            width: 100%;
+        }
+        .drawBtn{
+            display: block;
+            position: absolute;
+            width: 10rem;
+            height: auto;
+            left: 50%;
+            top: 50%;
+            margin-left: -5rem;
+            margin-top: -5rem;
+        }
+    }
+}

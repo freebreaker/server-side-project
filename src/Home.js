@@ -36,9 +36,8 @@ class HomePage extends React.Component {
     const listArray = CarInfoArray.length>0?CarInfoArray:[]
 
     let CarInfos = listArray.map((item,index)=>{
-
         return (
-          <li key={index}> 
+          <li key={index} style={{background:"white"}}> 
               <CarInfo
               totalMsgs = {item} 
               InvestPermisson = {InvestPermisson}
@@ -50,7 +49,7 @@ class HomePage extends React.Component {
     return(
         <div>
           <BannerCarousel/>
-          <ul>
+          <ul style={{padding:0}}>
             {CarInfos}
           </ul>
         </div>

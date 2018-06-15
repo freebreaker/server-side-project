@@ -95,7 +95,7 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "server": "json-server --watch -p 3002 db.json",
-    "start:server":"nodemon server/server.js"
+    "start:server": "nodemon server/server.js"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -139,5 +139,5 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "proxy":"http://localhost:13244"
+  "proxy": "http://localhost:13244"
 }

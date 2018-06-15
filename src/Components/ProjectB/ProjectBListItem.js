@@ -47,7 +47,7 @@ class ProjectBListItem extends React.Component {
                         </Link>
                     </div>
                     <span>
-                          剩余投资额：{Data.S_剩余投资额_XT}
+                          剩余投资额：{Data.S_剩余投资额}
                     </span>
                 </div>
                 <div className="CarInfoItem">

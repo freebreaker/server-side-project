@@ -15,7 +15,7 @@ class Security extends Component {
 
         return (
             <div className="Security">
-                <TopBar title="安全中心"/>
+                <TopBar title="安全中心" BackTo='/'/>
                 <BottomTab/>
                 <div className="SafeCenter">
                     <Accordion className="my-accordion" onChange={this.onChange}>

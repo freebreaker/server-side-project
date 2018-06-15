@@ -51,15 +51,15 @@ function Scaleplate(c){
     	}
     	c.end++;
     	mid = c.end - c.start;//取值范围    	
-    	var capacity = 100; //刻度容量
-    	// switch(true){
-    	// 	case mid>0 && mid<=1000 : capacity = 1;
-    	// 	break;
-    	// 	case mid>1000 && mid<=10000 : capacity = 10;
-    	// 	break;     
-     //        case mid>10000 : capacity = 100;
-     //        break;
-    	// }
+    	var capacity = 1000; //刻度容量
+    	switch(true){
+    		case mid>1000 && mid<=10000 : capacity = 100;
+    		break;     
+            case mid>10000 : capacity = 1000;
+            break;
+            default:
+            capacity = 1000
+    	}
     	var space = capacity*10; //左右两边间隙，根据该值计算整数倍刻度值画线
     	Scanvas.width = c.unit*Math.ceil(mid/capacity)+2*space; //加两边左右间隙是方便渲染最后刻度值
     	var ctx = Scanvas.getContext('2d');

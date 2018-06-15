@@ -1,0 +1,28 @@
+.OrderDetailsTable{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 15px;
+    background: white;
+    width: 85%;
+    margin: 0 auto;
+    border-radius: 10px;
+    .OrderDetailsItem{
+        width:33.3%;
+        p{
+            text-align: center;
+        }
+    }
+    .CloseBtn{
+        width: 100%;
+        text-align: center;
+        button{
+            padding: 4px 26px;
+            color:white;
+            background: #a1a7bd;
+            border: none;
+            border-radius: 20px;
+        }
+    }
+}
+

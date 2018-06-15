@@ -4,7 +4,7 @@ import {Link} from "react-router";
 import "./accountMsgs.scss";
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import {logOut,signIn} from "../../actions/index"
+import {logOut,signIn,getMyAssetList,getCanUseMoney} from "../../actions/index"
 class AccountMsgsWrap extends React.Component {
     constructor(props){
         super(props)
@@ -15,10 +15,17 @@ class AccountMsgsWrap extends React.Component {
 
     componentDidMount(){
         //获取store.getState()里的账号字段
-        console.log(this.props)
+        this.props.GetMyAssetList()
+        this.props.GetCanUseMoney()
     }
 
+    
     render() {
+
+        const AssestList = this.props.AssestList
+
+        // const CanUseMoney = this.props.CanUseMoney
+
         return (
             <div>
                 <div className = "AccountMsgsWrap">
@@ -50,20 +57,20 @@ class AccountMsgsWrap extends React.Component {
                         </div>
                         <div className="InvestInfo">
                             <div className="InvestMoney">
-                                <p>累计投资</p>
-                                <p>{this.props.UserMsgs.L_累计投资}</p>
+                                <p>待收本金</p>
+                                <p>{AssestList[3]}</p>
                             </div>
                             <div className="InvestMoney">
                                 <p>可用余额</p>
-                                <p></p>
+                                <p>{this.props.UserMsgs.Money}</p>
                             </div>
                             <div className="InvestMoney">
                                 <p>已收利息</p>
-                                <p>{this.props.UserMsgs.Z_总收益}</p>
+                                <p>{AssestList[1]}</p>
                             </div>
                             <div className="InvestMoney">
                                 <p>待收利息</p>
-                                <p></p>
+                                <p>{AssestList[2]}</p>
                             </div>
                         </div>
                     </div>
@@ -85,7 +92,15 @@ class AccountMsgsWrap extends React.Component {
                 <div className="AccountTableWrap">
                     <Link to={{
                             pathname:'MyAssets',
-                            state:''
+                            state:{
+                                Name:this.props.UserMsgs.FullName,
+                                InvestMoney:AssestList[0],
+                                InterestReceived:AssestList[1],
+                                InterestNotReceived:AssestList[2],
+                                MoneyNotReceived:AssestList[3],
+                                RechargeMoney:AssestList[4],
+                                WithDrawMoney:AssestList[5],
+                            }
                         }}>
                     <svg className="icon" aria-hidden="true" style={{
                         width: '22px',
@@ -98,7 +113,9 @@ class AccountMsgsWrap extends React.Component {
                     </Link>
                     <Link to={{
                             pathname:'MyBorrows',
-                            state:''
+                            state:{
+                                Id:this.props.UserMsgs.Id
+                            }
                         }}>
                     <svg className="icon" aria-hidden="true" style={{
                         width: '22px',
@@ -111,7 +128,7 @@ class AccountMsgsWrap extends React.Component {
                     </Link> 
                     <Link to={{
                             pathname:'MyGifts',
-                            state:''
+                            state:{Id:this.props.UserMsgs.Id}
                         }}>
                     <svg className="icon" aria-hidden="true" style={{
                         width: '22px',
@@ -164,7 +181,7 @@ class AccountMsgsWrap extends React.Component {
                         <span className="RightSpan">></span>
                     </Link> 
                     <Link to={{
-                            pathname:'Recharge',
+                            pathname:'MyFriends',
                             state:''
                         }}>
                     <svg className="icon" aria-hidden="true" style={{
@@ -208,13 +225,17 @@ class AccountMsgsWrap extends React.Component {
 const mapStateToProps = (state) => {
     return {
         UserMsgs:state.IfLogIn.Data,
-        SignInMsgs:state.IfLogIn.ifSigned
+        SignInMsgs:state.IfLogIn.ifSigned,
+        AssestList:state.IfLogIn.AssestList,
+        CanUseMoney:state.IfLogIn.CanUseMoney
     }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         onLogOut:bindActionCreators(logOut,dispatch),
-        onSignIn:bindActionCreators(signIn,dispatch)
+        onSignIn:bindActionCreators(signIn,dispatch),
+        GetMyAssetList:bindActionCreators(getMyAssetList,dispatch),
+        GetCanUseMoney:bindActionCreators(getCanUseMoney,dispatch),
     }
 }
 
