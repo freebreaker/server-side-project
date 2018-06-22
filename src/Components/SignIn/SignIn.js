@@ -39,7 +39,6 @@ class SignInWrap extends React.Component{
     }   
 
     render(){
-
         const {form:{name,password},formValid,onFormChange} = this.props
 
         return (        

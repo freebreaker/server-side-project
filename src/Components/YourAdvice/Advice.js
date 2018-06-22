@@ -3,6 +3,7 @@ import './advice.scss'
 import TopBar from '../../PubComponents/TopBar';
 import {Button} from 'antd-mobile';
 import axios from 'axios'
+import {Modal} from 'antd-mobile'
 import BottomTab from '../../PubComponents/BottomTab';
 class Advice extends Component {
     constructor(props){
@@ -44,7 +45,23 @@ class Advice extends Component {
             },
             withCredentials:true      
         }).then(function (response) {
-            alert(response.data)
+            if(response.data.Success){
+                Modal.alert(
+                    "提交成功",
+                    "感谢您的宝贵意见！",
+                    [
+                        { text: '确定', onPress: () => console.log('ok') }
+                    ]
+                )
+            }else{
+                Modal.alert(
+                    "提交失败",
+                    "请重新提交！",
+                    [
+                        { text: '确定', onPress: () => console.log('ok') }
+                    ]
+                )
+            }
           })
     }
     handleChange(e){

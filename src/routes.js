@@ -11,8 +11,10 @@ import ProjectBDetail from './Components/ProjectB/ProjectBDetail';
 import ProjectDetailList from './Components/ProjectB/ProjectDetailList';
 import SignUp  from './Components/SignIn/SignUp';
 import Recharge from './Components/Account/Recharge'
+import WithDraw from './Components/Account/WithDraw'
 import MyBorrows from './Components/Account/MyBorrows'
 import MyAssets from './Components/MyAssets/MyAssets.js'
+import MyRisk from './Components/MyRisk/MyRisk.js'
 import MyGifts from "./Components/MyGifts/MyGifts.js"
 import RMoneyText from "./Components/MyGifts/RMoneyText.js"
 import RMoneyUse from "./Components/MyGifts/RMoneyUse.js"
@@ -21,6 +23,7 @@ import Lucky from "./Components/MyGifts/Lucky"
 import LuckyNew from "./Components/MyGifts/LuckyNew"
 import Exchange from "./Components/MyGifts/Exchange"
 import MyCoupon from "./Components/MyGifts/MyCoupon"
+import ExchangeCoupon from "./Components/MyGifts/ExchangeCoupon"
 import Security from "./Components/MySecurity/Security.js"
 import Order from "./Components/MyOrder/Order"
 import OrderDetails from './Components/MyOrder/OrderDetails'
@@ -79,16 +82,19 @@ const routes = (
         <Route path="ProjectBOrder/:name" component = {ProjectBOrder}/>
         <Route path="ProjectDetailList/:name" component = {ProjectDetailList}/>
         <Route path="Register" component = {SignUp}/>
-        <Route path="Recharge" component = {Recharge}/>
+        <Route path="WithRecharge" component = {Recharge}/>
+        <Route path="WithDraw" component = {WithDraw}/>
         <Route path="MyBorrows" component = {MyBorrows}/>
         <Route path="MyAssets" component = {MyAssets}/>
         <Route path="MyGifts" component = {MyGifts}/>
+        <Route path="MyRisk" component = {MyRisk}/>
         <Route path="MyGifts/RMoneyText" component = {RMoneyText}/>
         <Route path="MyGifts/RMoneyUse" component = {RMoneyUse}/>
         <Route path="MyGifts/Lucky" component = {Lucky}/>
         <Route path="MyGifts/LuckyNew" component = {LuckyNew}/>
         <Route path="MyGifts/Exchange" component = {Exchange}/>
         <Route path="MyGifts/MyCoupon" component = {MyCoupon}/>
+        <Route path="MyGifts/ExchangeCoupon" component = {ExchangeCoupon}/>
         <Route path="MyFriends" component = {MyFriends}/>
         <Route path="Security" component = {Security}/>
         <Route path="MyOrder" component = {Order}/>

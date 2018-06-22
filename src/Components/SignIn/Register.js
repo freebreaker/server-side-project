@@ -16,7 +16,8 @@ class RegisterWrap extends React.Component{
     constructor(props){
         super(props)
         this.state={
-            form:{}       //整个表单的valid
+            form:{},       //整个表单的valid
+            YzmSrc:"/Yzm?tm="+Math.random(0,100000)
         }
     }
 
@@ -30,6 +31,13 @@ class RegisterWrap extends React.Component{
 
     onBlurPassword(event){
         event.target.placeholder = "请输入密码"
+    }
+
+    setYzmSrc(){
+        debugger
+        this.setState({
+            YzmSrc:"/Yzm?tm="+Math.random(0,100000)
+        })
     }
 
     componentWillMount(){
@@ -61,6 +69,7 @@ class RegisterWrap extends React.Component{
                         onChange={onFormChange.bind(this,"password")}
                         placeholder="请输入密码" onFocus={this.onFocus} onBlur={this.onBlurPassword}/>
                         <p>{password.valid ? "": password.error}</p>
+                        <img src={this.state.YzmSrc} alt="验证码" onClick={this.setYzmSrc}/>
                     <br/>
                     </FormItem>
                     <FormItem>

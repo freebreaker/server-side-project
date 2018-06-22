@@ -1,0 +1,16 @@
+.RightConversation{
+    margin: 1rem 0;
+    padding-right: 10px;
+    text-align: right;
+    span{
+        display: inline-block;
+        padding: 8px 15px;
+        background: white;
+        color: #6c7681;
+        border-radius: 8px;
+        border-bottom-right-radius: 14px;
+        vertical-align: middle;
+        text-align: left;
+
+    }
+}

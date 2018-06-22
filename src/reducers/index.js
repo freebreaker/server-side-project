@@ -9,7 +9,7 @@ const rootReducer = combineReducers({
   Data:listReducer,
   IfLogIn:loginReducer,
   MyBorrowList:borrowListReducer,
-  selectedValue:changeSelectedReducer
+  selectedValue:changeSelectedReducer,
 })
 export default rootReducer
 

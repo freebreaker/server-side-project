@@ -1142,11 +1142,6 @@ import axios from 'axios'
 //     "MyBorrowList":[],
 //     "selectedValue":1
 
-//     // "PageIndex": 0,
-//     // "PageCount": 0,
-//     // "Total": 0,
-//     // "SumText": null,
-//     // "PageNum": 0
 //   }
 
 

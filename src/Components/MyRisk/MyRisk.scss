@@ -1,0 +1,53 @@
+.MyRisk{
+    .BottomHidden{
+        display:none;
+    }
+    
+    .BottomShow{
+        display: block;
+    }
+
+    .BottomBtn{
+        width: 94%;
+        margin: 0 3%;
+        P{  
+            padding: 10px;
+            margin: 8px;
+            font-size: 10px;
+            background: white;
+            /* border: 1px solid #3fa7ff; */
+            color: #6c7681;
+            border-radius: 5px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .Selected{
+            background: #3fa7ff;
+            color: white;
+        }
+    }
+    .Add{
+        position: fixed;
+        width: 94%;
+        margin: 0 3%;
+        box-sizing: border-box;
+        border-radius: 5px;
+        text-align: center;
+        bottom: 10px;
+        padding: 10px;
+        background: #108EE9;
+        color: white;
+    }
+    .SubmitAdd{
+        position: fixed;
+        width: 94%;
+        margin: 0 3%;
+        box-sizing: border-box;
+        border-radius: 5px;
+        text-align: center;
+        bottom: 10px;
+        padding: 10px;
+        background: #108EE9;
+        color: white;
+    }
+}

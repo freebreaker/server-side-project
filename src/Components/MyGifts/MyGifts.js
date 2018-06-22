@@ -74,7 +74,7 @@ class MyGifts extends Component {
                         RightFontColor ="icon"
                         LeftLink = '/'
                         RLink = '/MyGifts/Exchange'
-                        BLink = '/MyGifts/MyCoupon'
+                        BLink = '/MyGifts/ExchangeCoupon'
                         RId = {Id}
                         />
                         <MyGiftItem

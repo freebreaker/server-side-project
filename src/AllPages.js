@@ -7,6 +7,7 @@ import './Allpages.css'
 import { changeSelectedValue } from './actions/index';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
+import $ from 'jquery';
 
 class TabBottomWrap extends React.Component {
   constructor(props) {

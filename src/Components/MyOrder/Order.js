@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import BottomTab from '../../PubComponents/BottomTab.js';
 import TopBar from '../../PubComponents/TopBar';
-import { Checkbox,Button} from 'antd-mobile';
+import { Checkbox,Button,Modal} from 'antd-mobile';
 import './order.scss';
 import {Link} from 'react-router'
 
@@ -100,7 +100,20 @@ class Order extends Component {
             },
             withCredentials:true 
         }).then(function(response){
-
+            response.data.Success?Modal.alert(
+                "操作成功！",
+                response.data.Msg,
+                [
+                    { text: '确定', onPress: () => console.log('ok') }
+                ]
+            ):Modal.alert(
+                "操作失败！",
+                response.data.Msg,
+                [
+                    { text: '确定', onPress: () => console.log('ok') }
+                ]
+            )
+            ;
         }).catch(function (error) {
             console.log(error);
         });

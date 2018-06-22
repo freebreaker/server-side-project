@@ -1,6 +1,7 @@
 
 import axios from 'axios'
 import fetch from 'isomorphic-fetch';
+import { Modal} from 'antd-mobile';
 import loginReducer from '../reducers/login';
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS"
 export const LOG_OUT = "LOG_OUT"
@@ -85,11 +86,24 @@ export function signIn(){
   return (dispatch)=>{
     return axios({
       method:"POST",
-      url:"http://localhost:13244/SignIn",
+      url:"/SignIn",
       withCredentials:true
     })
     .then(function (response) {
         dispatch(fetchLogIn(response.data))
+        response.data.Success?Modal.alert(
+           '签到成功！',
+           response.data.Msg,
+           [
+            { text: '确定', onPress: () => console.log('ok') },
+           ]
+        ):Modal.alert(
+          '签到成功！',
+          response.data.Msg,
+          [
+            { text: '确定', onPress: () => console.log('ok') },
+          ]
+       )
       })
       .catch(function (error) {
         console.log(error);

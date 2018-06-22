@@ -71,7 +71,9 @@ class CarInfo extends React.Component {
                 <div className="CarInfoTitle">
                     <div>
                         {ProjectBTypeIndex}
-                        <Link to={{
+                        <Link 
+                        style={{color:"black"}}
+                        to={{
                                 pathname:`ProjectBList`,
                                 state:data
                                 }}>{Title}

@@ -36,7 +36,7 @@ class AccountMsgsWrap extends React.Component {
                                     width: '50px',
                                     height: '40px'
                                 }} >
-                                    <use xlinkHref={this.props.ImgValue}></use>
+                                    <use xlinkHref='#icon-xiangmu'></use>
                                 </svg>
                             </div>
                             <div className='Telephone'>
@@ -75,21 +75,51 @@ class AccountMsgsWrap extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="RechargeAndDraw">
-                    <Link to={{
-                        pathname:'Recharge',
-                        state:''
-                    }}>
-                        充值
-                    </Link>
-                    <Link to={{
-                        pathname:'Recharge',
-                        state:''
-                    }}>
-                        提现
-                    </Link>
-                </div>
                 <div className="AccountTableWrap">
+                    <Link to={{
+                                pathname:'WithRecharge',
+                                state:{
+                                    Name:this.props.UserMsgs.FullName,
+                                    InvestMoney:AssestList[0],
+                                    InterestReceived:AssestList[1],
+                                    InterestNotReceived:AssestList[2],
+                                    MoneyNotReceived:AssestList[3],
+                                    RechargeMoney:AssestList[4],
+                                    WithDrawMoney:AssestList[5],
+                                }
+                            }}>
+                        <svg className="icon" aria-hidden="true" style={{
+                            width: '22px',
+                            height: '22px',
+                        }} >
+                            <use xlinkHref="#icon-jinbi1"></use>
+                        </svg>
+                        <span>充值</span>
+                        <span className="RightSpan">></span>
+                    </Link>
+                    <Link 
+                        style={{marginBottom:10}}
+                        to={{
+                            pathname:'WithDraw',
+                            state:{
+                                Name:this.props.UserMsgs.FullName,
+                                InvestMoney:AssestList[0],
+                                InterestReceived:AssestList[1],
+                                InterestNotReceived:AssestList[2],
+                                MoneyNotReceived:AssestList[3],
+                                RechargeMoney:AssestList[4],
+                                WithDrawMoney:AssestList[5],
+                            }
+                        }}>
+                        <svg className="icon" aria-hidden="true" style={{
+                            width: '22px',
+                            height: '22px',
+                        }} >
+                            <use xlinkHref="#icon-jinrongxianxingge-"></use>
+                        </svg>
+                        <span>提现</span>
+                        <span className="RightSpan">></span>
+                    </Link>
                     <Link to={{
                             pathname:'MyAssets',
                             state:{
@@ -141,7 +171,7 @@ class AccountMsgsWrap extends React.Component {
                         <span className="RightSpan">></span>
                     </Link> 
                     <Link to={{
-                            pathname:'Recharge',
+                            pathname:'MyRisk',
                             state:''
                         }}>
                     <svg className="icon" aria-hidden="true" style={{

@@ -7,17 +7,34 @@ import turntableDraw from '../../utils/Rotate.js'
 import drawBgImg from "../../images/drawBgImg.png";
 import drawBgCenter from "../../images/drawBgCenter.png";
 import axios from 'axios'
+import {Modal} from 'antd-mobile'
 // import {bindActionCreators} from 'redux'
 
 class LuckyNew extends Component {
     constructor(props) {
         super(props);
         this.state={
-            money:this.props.location.state.RMoney,
+            RMoney:this.props.location.state.RMoney,
             mssg:"还差一点哦~"
         }
     }
 
+
+    componentDidMount(){
+        const _this = this
+        axios({
+            method:"POST",
+            url:"RefreshUserModel",
+            withCredentials:true
+        }).then(function(response){
+            _this.setState({
+                RMoney:response.data.Data.RMoney
+            })
+        }).catch(function (error) {
+        console.log(error);
+    });
+
+    }
 
     rotate(){
 
@@ -31,10 +48,22 @@ class LuckyNew extends Component {
             callback:function(num)
             {
                 if (_this.state.mssg == null){
-                    alert("还差一点哦~");
+                    Modal.alert(
+                        "操作成功！",
+                        "还差一点点哦~",
+                        [
+                            { text: '确定', onPress: () => console.log('ok') }
+                        ]
+                    );
                 }
                 else{
-                    alert("恭喜你获得"+_this.state.mssg);
+                    Modal.alert(
+                        "抽奖成功！",
+                        "恭喜你获得"+_this.state.mssg,
+                        [
+                            { text: '确定', onPress: () => console.log('ok') }
+                        ]
+                    );
         
                 }
             },
@@ -86,7 +115,13 @@ class LuckyNew extends Component {
                 })
                 newdraw2.goto(index);
             }else{
-                alert(response.data.Msg)
+                Modal.alert(
+                    "抽奖失败！",
+                    response.data.Msg,
+                    [
+                        { text: '确定', onPress: () => console.log('ok') }
+                    ]
+                );
             }
         }).catch(function (error) {
         console.log(error);
@@ -99,7 +134,7 @@ class LuckyNew extends Component {
                 <TopBar title="我的抽奖" BackTo ="/MyGifts" Id={this.props.location.state.Id}/>
                 <div className='LuckyNew'>
                 <div>
-                    <h2>您共有{this.state.money}个R币</h2>
+                    <h2>您共有{this.state.RMoney}个R币</h2>
                     <div className="box1">
                         <img src={drawBgImg} className="drawBg" alt=""/>
                         <a href="javascript:void(0)">

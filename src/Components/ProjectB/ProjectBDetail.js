@@ -185,7 +185,7 @@ class ProjectBDetailWrap extends React.Component {
                     pathname:"/"
                 }}
                 onClick={this.pushLogIn.bind(this,1)}>
-                <i className="iconfont">&#xe645;</i>
+                <i className="iconfont" style={{color:"white"}}>&#xe645;</i>
                 </Link>
                 <div className="TotalMsgs">
                     <div className="YearPercent">
@@ -233,13 +233,20 @@ class ProjectBDetailWrap extends React.Component {
                 <p className="ProfitMoney"></p>
             </div>
             {ProjectBTypeWrap}
-            <Link className="InvestLog" to={{
+            <Link className='InvestLog' to={{
                 pathname: `/ProjectDetailList/${Id}`,
                 state:{
                     ProjectDetailListId:Id,
                 }
             }}>
-                投资记录
+            <svg className="icon" aria-hidden="true" style={{
+                width: '22px',
+                height: '22px',
+            }} >
+                <use xlinkHref="#icon-jilu2"></use>
+            </svg>
+            <span style={{fontSize:"1rem",verticalAlign:"middle"}}> 投资记录</span>
+            <span className="RightSpan">></span>
             </Link>
             {this.props.InvestPermisson?
             <Link className="InvestButton" to={{

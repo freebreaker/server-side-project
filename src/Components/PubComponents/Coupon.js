@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './coupon.scss'
 import {Link} from 'react-router'
+import axios from 'axios';
+import {Modal} from 'antd-mobile';
 class Coupon extends React.Component {
   constructor(props) {
     super(props);
@@ -8,7 +10,38 @@ class Coupon extends React.Component {
     };
   }
 
+  ExchangePost(id){
+    let _this = this
+    let ExchangePostId = id
+    axios({
+      method:"POST",
+      url:ExchangePostId,
+      withCredentials:true      
+    })
+    .then(function (response) {
+      if(response.data.Success){
+        Modal.alert(
+          "兑换成功",
+          response.data.Msg,
+          [
+            { text: '确定', onPress: () => console.log('ok') }
+          ]
+        )
+      }else{
+        Modal.alert(
+          "兑换失败",
+          response.data.Msg,
+          [
+            { text: '确定', onPress: () => console.log('ok') }
+          ]
+        )
+      }
 
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+  }
 
   // useCoupon(orangeIndex){
   //   if(document.querySelectorAll('div.stamp01').length>0 && orangeIndex !== undefined){
@@ -50,6 +83,9 @@ class Coupon extends React.Component {
             pathname:this.props.useLink
           }} style={{position:'relative',zIndex:99,color:"white"}}>{this.props.use}</Link>
           :this.props.use}
+          {this.props.postUrl?
+          <p style={{marginTop:48,fontSize:"2rem"}} onClick={this.ExchangePost.bind(this,this.props.postUrl)}>兑换</p>
+          :""}
           <p>{StartDate}<br/>{EndDate}</p></div>
           <i></i>
       </div>

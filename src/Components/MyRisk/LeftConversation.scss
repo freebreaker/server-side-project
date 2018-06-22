@@ -1,0 +1,18 @@
+.LeftConversation{
+    margin-top: 1rem;
+    padding-left: 4px;
+    .icon{
+        vertical-align: middle;
+    }
+    span{
+        display: inline-block;
+        margin-left: 5px;
+        padding: 8px 15px;
+        background: #3fa7ff;
+        color: white;
+        border-radius: 8px;
+        border-bottom-left-radius: 14px;
+        vertical-align: middle;
+
+    }
+}
